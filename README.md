@@ -42,100 +42,100 @@ The application currently lacks a front end but is in a working version. That be
 
 Customers
 
-    - Index - GET - {{ _.base_url }}/customers
-    - Show - GET - {{ _.base_url }}/customers/customer_id
-    - Create - POST - {{base_url}}/customers (JSON body)
-    - Delete - DELETE - {{base_url}}/customers/customer_id
-    - Update - PUT - {{base_url}}/customers/customer_id (JSON body)
-    - Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
-    - Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
+    Index - GET - {{ _.base_url }}/customers
+    Show - GET - {{ _.base_url }}/customers/customer_id
+    Create - POST - {{base_url}}/customers (JSON body)
+    Delete - DELETE - {{base_url}}/customers/customer_id
+    Update - PUT - {{base_url}}/customers/customer_id (JSON body)
+    Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
+    Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
 
 Contracts
 
-    - Index - GET - {{ _.base_url }}/contracts
-    - Show - GET - {{ _.base_url }}/contracts/contract_id
-    - Create - POST - {{base_url}}/contracts (JSON body)
-    - Delete - DELETE - {{base_url}}/contracts/contract_id
-    - Update - PUT - {{base_url}}/contracts/contract_id (JSON body)
-    - Transactions by Contract - GET - {{base_url}}/contracts/contract_id/transactions
-    - Invoices by Contract - GET - {{base_url}}/contracts/contract_id/invoices
+    Index - GET - {{ _.base_url }}/contracts
+    Show - GET - {{ _.base_url }}/contracts/contract_id
+    Create - POST - {{base_url}}/contracts (JSON body)
+    Delete - DELETE - {{base_url}}/contracts/contract_id
+    Update - PUT - {{base_url}}/contracts/contract_id (JSON body)
+    Transactions by Contract - GET - {{base_url}}/contracts/contract_id/transactions
+    Invoices by Contract - GET - {{base_url}}/contracts/contract_id/invoices
 
 Transactions
 
-    - Index - GET - {{base_url}}/transactions
-    - Show - GET - {{ _.base_url }}/transactions/txn_id
-    - Create - POST - {{base_url}}/transactions (JSON body)
-    - Delete - DELETE - {{base_url}}/transactions/txn_id
-    - Update - PUT - {{base_url}}/transactions/txn_id (JSON body)
-    - Invoices by Transaction- GET - {{base_url}}/transactions/txn_id/invoices
+    Index - GET - {{base_url}}/transactions
+    Show - GET - {{ _.base_url }}/transactions/txn_id
+    Create - POST - {{base_url}}/transactions (JSON body)
+    Delete - DELETE - {{base_url}}/transactions/txn_id
+    Update - PUT - {{base_url}}/transactions/txn_id (JSON body)
+    Invoices by Transaction- GET - {{base_url}}/transactions/txn_id/invoices
 
 Invoices
 
-    - Index - GET - {{base_url}}/invoices
-    - Show - GET - {{base_url}}/invoices/invoice_id
-    - Create - POST - {{base_url}}/invoices (JSON body)
-    - Delete - DELETE - {{base_url}}/invoices/invoice_id
-    - Update - PUT - {{base_url}}/invoices (JSON body)
-    - Transactions by Invoice - GET - {{base_url}}/invoices/invoice_id/transactions
+    Index - GET - {{base_url}}/invoices
+    Show - GET - {{base_url}}/invoices/invoice_id
+    Create - POST - {{base_url}}/invoices (JSON body)
+    Delete - DELETE - {{base_url}}/invoices/invoice_id
+    Update - PUT - {{base_url}}/invoices (JSON body)
+    Transactions by Invoice - GET - {{base_url}}/invoices/invoice_id/transactions
 
 Accountant Tools
 
-    - Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
+    -Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
 
 **Database Structure**
 
-Database Name
+Database Name:
 
-    revenue_tracker
+    revtracker_flask
 
 Tables:
 
 customers
 
-    - id: Integer type, primary key
-    - name: String type (max length 128), unique and not nullable
-    - created_on: Date type, not nullable, with default value as the current date and time
-    - is_active: Boolean type, not nullable, with default value as True
-    - address_line_1: String type (max length 200), not nullable
-    - address_line_2: String type (max length 200)
-    - city: String type (max length 100), not nullable
-    - state: String type (max length 100), not nullable
-    - zip_code: String type (max length 20), not nullable
-    - country: String type (max length 100), not nullable
+    id: Integer type, primary key
+    name: String type (max length 128), unique and not nullable
+    created_on: Date type, not nullable, with default value as the current date and time
+    is_active: Boolean type, not nullable, with default value as True
+    address_line_1: String type (max length 200), not nullable
+    address_line_2: String type (max length 200)
+    city: String type (max length 100), not nullable
+    state: String type (max length 100), not nullable
+    zip_code: String type (max length 20), not nullable
+    country: String type (max length 100), not nullable
 
 transactions
 
-    = id: Integer type, primary key
-    = product: Enum type (ProductType), not nullable
-    = value: Float type, not nullable
-    = start_date: Date type, not nullable
-    = end_date: Date type, not nullable
-    = billing_cadence: Enum type (BillingCadence), not nullable, with default value as BillingCadence.monthly
-    = contract_id: Integer type, foreign key referencing id in contracts table, not nullable, indexed
+    id: Integer type, primary key
+    product: Enum type (ProductType), not nullable
+    value: Float type, not nullable
+    start_date: Date type, not nullable
+    end_date: Date type, not nullable
+    billing_cadence: Enum type (BillingCadence), not nullable, with default value as BillingCadence.monthly
+    contract_id: Integer type, foreign key referencing id in contracts table, not nullable, indexed
 
 contracts
 
-    - id: Integer type, primary key
-    - start_date: Date type, not nullable
-    - end_date: Date type, not nullable
-    - value: Float type, not nullable
-    - status: Enum type (ContractStatus), not nullable, with default value as ContractStatus.draft
-    - created_on: Date type, not nullable, with default value as the current date and time
-    - customer_id: Integer type, foreign key referencing id in customers table, not nullable, indexed
+    id: Integer type, primary key
+    start_date: Date type, not nullable
+    end_date: Date type, not nullable
+    value: Float type, not nullable
+    status: Enum type (ContractStatus), not nullable, with default value as ContractStatus.draft
+    created_on: Date type, not nullable, with default value as the current date and time
+    customer_id: Integer type, foreign key referencing id in customers table, not nullable, indexed
 
 invoices
 
-    - id: Integer type, primary key
-    - date: Date type, not nullable, with default value as the current date and time
-    - payment_terms: Enum type (PaymentTerms), not nullable, with default value as PaymentTerms.due_upon_receipt
-    - amount_due: Float type, not nullable
-    - customer_id: Integer type, foreign key referencing id in customers table, not nullable, indexed
-    - contract_id: Integer type, foreign key referencing id in contracts table, not nullable, indexed
+    id: Integer type, primary key
+    date: Date type, not nullable, with default value as the current date and time
+    payment_terms: Enum type (PaymentTerms), not nullable, with default value as PaymentTerms.due_upon_receipt
+    amount_due: Float type, not nullable
+    customer_id: Integer type, foreign key referencing id in customers table, not nullable, indexed
+    contract_id: Integer type, foreign key referencing id in contracts table, not nullable, indexed
 
 invoices_transactions
 
-    - invoice_id: Integer type, foreign key referencing id in invoices table, primary key
-    - transaction_id: Integer type, foreign key referencing id in transactions table, primary key
+    invoice_id: Integer type, foreign key referencing id in invoices table, primary key
+    transaction_id: Integer type, foreign key referencing id in transactions table, primary key
 
 Relationships:
 
