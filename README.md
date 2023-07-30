@@ -1,36 +1,42 @@
 **Welcome to my Nucamp portfolio project!**
 
-**_CRITQUE AND FEEDBACK IS ALWAYS WELCOMED_**
+_*CRITQUE AND FEEDBACK IS ALWAYS WELCOMED*_
 
-This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM. This application is designed for accountants to automate the revenue recognition process. In the world of accounting, revenue must be recognized in compliance with the ASC 606 framework provided by GAAP. There are five steps to determine the proper treatment of revenue:
+    This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM. This application is designed for accountants to automate the revenue recognition process. In the world of accounting, revenue must be recognized in compliance with the ASC 606 framework provided by GAAP. There are five steps to determine the proper treatment of revenue:
 
-    - Identify the customer contract
-    - Identify the performance obligations
-    - Determine the transaction price
-    - Allocate the price to the performance obligations
-    - Recognize revenue as performance obligations are satisfied
+        - Identify the customer contract
+        - Identify the performance obligations
+        - Determine the transaction price
+        - Allocate the price to the performance obligations
+        - Recognize revenue as performance obligations are satisfied
 
-In the most basic example, imagine that you have signed up for an annual Adobe subscription that costs $120 each year and begins January, 1st. You might think that Adobe recognizes your $120 payment as revenue in the month that the deposit was made or on the date that the contract was signed however that is wrong! Since your subscription contract is for a full year, the $120 must be amortized over your contract's 12 month service period. This means that Adobe would actually need to recognize $10 each month from January through December.
+    In the most basic example, imagine that you have signed up for an annual Adobe subscription that costs $120 each year and begins January, 1st. You might think that Adobe recognizes your $120 payment as revenue in the month that the deposit was made or on the date that the contract was signed however that is wrong! Since your subscription contract is for a full year, the $120 must be amortized over your contract's 12 month service period. This means that Adobe would actually need to recognize $10 each month from January through December.
 
-On the accounting side of things, this deferral of revenue creates a liability on the balance sheet that must be reduced each month as contracted performance obiligations are satisfied. This process is executed on a monthly basis with journal entries to recognize revenue and decrease the deferred revenue liability. Let's see how this process looks in action...
+    On the accounting side of things, this deferral of revenue creates a liability on the balance sheet that must be reduced each month as contracted performance obiligations are satisfied. This process is executed on a monthly basis with journal entries to recognize revenue and decrease the deferred revenue liability. Let's see how this process looks in action...
 
-    - Annual Adobe Subscription Invoiced:
-    - DEBIT: Accounts Receivable: 120
-    - CREDIT: Deferred Revenue: 120
+        Annual Adobe Subscription Invoiced:
+        DEBIT: Accounts Receivable: 120
+        CREDIT: Deferred Revenue: 120
 
-This entry increases accounts receivable, indicating the customer has a balance due, while also increasing the balance of deferred revenue, which is now $120. No revenue has been recognized yet. At the end of the month, an accountant will then make a journal entry to properly recognize only $10 of annual subscription's revenue.
+    This entry increases accounts receivable, indicating the customer has a balance due, while also increasing the balance of deferred revenue, which is now $120. No revenue has been recognized yet. At the end of the month, an accountant will then make a journal entry to properly recognize only $10 of annual subscription's revenue.
 
-    - Monthly Revenue Journal Entry:
-    - DEBIT: Deferred Revenue: 10
-    - CREDIT: Subscription Revenue: 10
+        Monthly Revenue Journal Entry:
+        DEBIT: Deferred Revenue: 10
+        CREDIT: Subscription Revenue: 10
 
-The deferred revenue liability has now been reduced by $10 resulting in a balance of $110 while $10 of subscription revenue has now been recognized. This process will continue until the contract's balance in deferred revenue is $0.
+    The deferred revenue liability has now been reduced by $10 resulting in a balance of $110 while $10 of subscription revenue has now been recognized. This process will continue until the contract's balance in deferred revenue is $0.
 
-On the surface, revenue recognition may appear straightforward, but the example given barely dives into its complexities. Consider scenarios where you're dealing with tens or hundreds of thousands of customers, with contracts that don't necessarily align to a neat 12 month timeframe or a clean $120 value. Or imagine contracts that with multiple products, each carrying its own performance obligations and billing cadences.
+**So What's The Problem?**
 
-While there are online revenue recognition solutions available, they often come with hefty price tags. Additionally, these tools often remain underutilized due to their intricate systems, leading to excess tech debt and a platform that no one fully understands. So in many situations, accountants use what they know best – cumbersome, clunky, slow Excel spreadsheets. However, managing these spreadsheets can be a tedoious, error-prone, and time-consuming task. To prevent wasted money and time, this application aims to provide a cost-effective solution to automate the revenue recognition process, simplifying the task while maintaining accuracy and efficiency.
+    On the surface, revenue recognition may appear straightforward, but the example given barely dives into its complexities. Consider scenarios where you're dealing with tens or hundreds of thousands of customers, with contracts that don't necessarily align to a neat 12 month timeframe or a clean $120 value. Or imagine contracts that with multiple products, each carrying its own performance obligations and billing cadences.
 
-This application is designed to create and manage customer records, contracts, and transactions effectively. A contract can contain multiple transactions, each with varying service periods and billing cadences. These details are then used to streamline the generation of a contract's invoices automatically. Accountants can then utilize the application to pull data for a particular month, helping them obtain the appropriate revenue by product to be recognized in their monthly journal entries. The application currently lacks a front end but is in a working version. That being said, there are many more features and error checks to add. As the application's development progresses, I intend to incorporate the capability to reconcile the Deferred/Accrued Revenue account balances, generate reports on various revenue KPIs amd integrate with Quickbooks Online. This would facilitate automatic invoice creation and the booking of monthly revenue journal entries, providing a comprehensive and efficient solution for revenue management.
+    While there are online revenue recognition solutions available, they often come with hefty price tags. Additionally, these tools often remain underutilized due to their intricate systems, leading to excess tech debt and a platform that no one fully understands. So in many situations, accountants use what they know best – cumbersome, clunky, slow Excel spreadsheets. However, managing these spreadsheets can be a tedoious, error-prone, and time-consuming task.
+
+**What Does This App Do?**
+
+    To prevent wasted money and time, this application aims to provide a cost-effective solution to automate the revenue recognition process, simplifying the task while maintaining accuracy and efficiency. This application can create and manage customer records, contracts, and transactions. A contract can contain multiple transactions, each with varying service periods and billing cadences. These details are then used to streamline the generation of a contract's invoices automatically. Accountants can then utilize the application to pull data for a particular month, helping them obtain the appropriate revenue by product to be recognized in their monthly journal entries.
+
+    The application currently lacks a front end but is in a working version. That being said, there are many more features and error checks to add. As the application's development progresses, I intend to incorporate the capability to reconcile the Deferred/Accrued Revenue account balances, generate reports on various revenue KPIs amd integrate with Quickbooks Online. This would facilitate automatic invoice creation and the booking of monthly revenue journal entries, providing a comprehensive and efficient solution for revenue management.
 
 **API Endpoints**
 
