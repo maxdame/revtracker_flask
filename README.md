@@ -13,15 +13,15 @@ In the most basic example, imagine that you have signed up for an annual Adobe s
 
 On the accounting side of things, this deferral of revenue creates a liability on the balance sheet that must be reduced each month as contracted performance obiligations are satisfied. This process is executed on a monthly basis with journal entries to recognize revenue and decrease the deferred revenue liability. Let's see how this process looks in action...
 
-- Annual Adobe Subscription Invoiced:
-- DEBIT: Accounts Receivable: 120
-- CREDIT: Deferred Revenue: 120
+    - Annual Adobe Subscription Invoiced:
+    - DEBIT: Accounts Receivable: 120
+    - CREDIT: Deferred Revenue: 120
 
 This entry increases accounts receivable, indicating the customer has a balance due, while also increased the balance of deferred revenue, which is now $120. No revenue has been recognized yet. At the end of the month, an accountant will then make a journal entry to properly recognize only $10 of annual subscription's revenue.
 
-- Monthly Revenue Journal Entry:
-- DEBIT: Deferred Revenue: 10
-- CREDIT: Subscription Revenue: 10
+    - Monthly Revenue Journal Entry:
+    - DEBIT: Deferred Revenue: 10
+    - CREDIT: Subscription Revenue: 10
 
 The deferred revenue liability has now been reduced by $10 resulting in a balance of $110 while $10 of subscription revenue has now been recognized. This process will continue until the contract's balance in deferred revenue is $0.
 
