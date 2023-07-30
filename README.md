@@ -34,7 +34,7 @@ Ultimately, I envision integrating the application with Quickbooks Online. This 
 
 **API Endpoints**
 
-    - Customers
+    Customers
     - Index - GET - {{ _.base_url }}/customers
     - Show - GET - {{ _.base_url }}/customers/customer_id
     - Create - POST - {{base_url}}/customers (JSON body)
@@ -43,32 +43,33 @@ Ultimately, I envision integrating the application with Quickbooks Online. This 
     - Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
     - Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
 
-Contracts
-Index - GET - {{ _.base_url }}/contracts
-Show - GET - {{ _.base_url }}/contracts/contract_id
-Create - POST - {{base_url}}/contracts (JSON body)
-Delete - DELETE - {{base_url}}/contracts/contract_id
-Update - PUT - {{base_url}}/contracts/contract_id (JSON body)
-Transactions by Contract - GET - {{base_url}}/contracts/contract_id/transactions
-Invoices by Contract - GET - {{base_url}}/contracts/contract_id/invoices
+    Contracts
+    - Index - GET - {{ _.base_url }}/contracts
+    - Show - GET - {{ _.base_url }}/contracts/contract_id
+    - Create - POST - {{base_url}}/contracts (JSON body)
+    - Delete - DELETE - {{base_url}}/contracts/contract_id
+    - Update - PUT - {{base_url}}/contracts/contract_id (JSON body)
+    - Transactions by Contract - GET - {{base_url}}/contracts/contract_id/transactions
+    - Invoices by Contract - GET - {{base_url}}/contracts/contract_id/invoices
 
-Transactions
-Index - GET - {{base_url}}/transactions
-Show - GET - {{ _.base_url }}/transactions/txn_id
-Create - POST - {{base_url}}/transactions (JSON body)
-Delete - DELETE - {{base_url}}/transactions/txn_id
-Update - PUT - {{base_url}}/transactions/txn_id (JSON body)
-Invoices by Transaction- GET - {{base_url}}/transactions/txn_id/invoices
-Invoices
-Index - GET - {{base_url}}/invoices
-Show - GET - {{base_url}}/invoices/invoice_id
-Create - POST - {{base_url}}/invoices (JSON body)
-Delete - DELETE - {{base_url}}/invoices/invoice_id
-Update - PUT - {{base_url}}/invoices (JSON body)
-Transactions by Invoice - GET - {{base_url}}/invoices/invoice_id/transactions
+    Transactions
+    - Index - GET - {{base_url}}/transactions
+    - Show - GET - {{ _.base_url }}/transactions/txn_id
+    - Create - POST - {{base_url}}/transactions (JSON body)
+    - Delete - DELETE - {{base_url}}/transactions/txn_id
+    - Update - PUT - {{base_url}}/transactions/txn_id (JSON body)
+    - Invoices by Transaction- GET - {{base_url}}/transactions/txn_id/invoices
 
-Accountant Tools
-Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
+    Invoices
+    - Index - GET - {{base_url}}/invoices
+    - Show - GET - {{base_url}}/invoices/invoice_id
+    - Create - POST - {{base_url}}/invoices (JSON body)
+    - Delete - DELETE - {{base_url}}/invoices/invoice_id
+    - Update - PUT - {{base_url}}/invoices (JSON body)
+    - Transactions by Invoice - GET - {{base_url}}/invoices/invoice_id/transactions
+
+    Accountant Tools
+    - Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
 
 Database Structure
 Database Name: revenue_tracker
