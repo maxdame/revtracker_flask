@@ -2,7 +2,10 @@
 
 _*CRITQUE AND FEEDBACK IS ALWAYS WELCOMED*_
 
-    This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM. This application is designed for accountants to automate the revenue recognition process. In the world of accounting, revenue must be recognized in compliance with the ASC 606 framework provided by GAAP. There are five steps to determine the proper treatment of revenue:
+    This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM.
+    This application is designed for accountants to automate the revenue recognition process. In the world of accounting, 
+    revenue must be recognized in compliance with the ASC 606 framework provided by GAAP.
+    There are five steps to determine the proper treatment of revenue:
 
         - Identify the customer contract
         - Identify the performance obligations
