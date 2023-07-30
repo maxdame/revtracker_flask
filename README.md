@@ -1,5 +1,7 @@
 **Welcome to my Nucamp portfolio project!**
 
+**_CRITQUE AND FEEDBACK IS ALWAYS WELCOMED_**
+
 This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM. This application is designed for accountants to automate the revenue recognition process. In the world of accounting, revenue must be recognized in compliance with the ASC 606 framework provided by GAAP. There are five steps to determine the proper treatment of revenue:
 
     - Identify the customer contract
@@ -16,7 +18,7 @@ On the accounting side of things, this deferral of revenue creates a liability o
     - DEBIT: Accounts Receivable: 120
     - CREDIT: Deferred Revenue: 120
 
-This entry increases accounts receivable, indicating the customer has a balance due, while also increased the balance of deferred revenue, which is now $120. No revenue has been recognized yet. At the end of the month, an accountant will then make a journal entry to properly recognize only $10 of annual subscription's revenue.
+This entry increases accounts receivable, indicating the customer has a balance due, while also increasing the balance of deferred revenue, which is now $120. No revenue has been recognized yet. At the end of the month, an accountant will then make a journal entry to properly recognize only $10 of annual subscription's revenue.
 
     - Monthly Revenue Journal Entry:
     - DEBIT: Deferred Revenue: 10
@@ -28,9 +30,7 @@ On the surface, revenue recognition may appear straightforward, but the example 
 
 While there are online revenue recognition solutions available, they often come with hefty price tags. Additionally, these tools often remain underutilized due to their intricate systems, leading to excess tech debt and a platform that no one fully understands. So in many situations, accountants use what they know best – cumbersome, clunky, slow Excel spreadsheets. However, managing these spreadsheets can be a tedoious, error-prone, and time-consuming task. To prevent wasted money and time, this application aims to provide a cost-effective solution to automate the revenue recognition process, simplifying the task while maintaining accuracy and efficiency.
 
-This application is designed to create and manage customer records, contracts, and transactions effectively. A contract can contain multiple transactions, each with varying service periods and billing cadences. These details are then used to streamline the generation of a contract's invoices automatically. Accountants can then utilize the application to pull data for a particular month, helping them obtain the appropriate revenue by product to be recognized in their monthly journal entries. Furthermore, as the application's development progresses, I intend to incorporate the capability to reconcile the Deferred/Accrued Revenue account balances and generate reports on various revenue KPIs.
-
-Ultimately, I envision integrating the application with Quickbooks Online. This would facilitate automatic invoice creation and the booking of monthly revenue journal entries, providing a comprehensive and efficient solution for revenue management.
+This application is designed to create and manage customer records, contracts, and transactions effectively. A contract can contain multiple transactions, each with varying service periods and billing cadences. These details are then used to streamline the generation of a contract's invoices automatically. Accountants can then utilize the application to pull data for a particular month, helping them obtain the appropriate revenue by product to be recognized in their monthly journal entries. The application is currently in a working version however there are many more features and error checks to add. As the application's development progresses, I intend to incorporate the capability to reconcile the Deferred/Accrued Revenue account balances, generate reports on various revenue KPIs amd integrate with Quickbooks Online. This would facilitate automatic invoice creation and the booking of monthly revenue journal entries, providing a comprehensive and efficient solution for revenue management.
 
 **API Endpoints**
 
