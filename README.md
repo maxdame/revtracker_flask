@@ -24,7 +24,7 @@ This entry increases accounts receivable, indicating the customer has a balance 
         DEBIT: Deferred Revenue: 10
         CREDIT: Subscription Revenue: 10
 
-    The deferred revenue liability has now been reduced by $10 resulting in a balance of $110 while $10 of subscription revenue has now been recognized. This process will continue until the contract's balance in deferred revenue is $0.
+The deferred revenue liability has now been reduced by $10 resulting in a balance of $110 while $10 of subscription revenue has now been recognized. This process will continue until the contract's balance in deferred revenue is $0.
 
 **So What's The Problem?**
 
@@ -32,7 +32,7 @@ On the surface, revenue recognition may appear straightforward, but the example 
 
 While there are online revenue recognition solutions available, they often come with hefty price tags. Additionally, these tools often remain underutilized due to their intricate systems, leading to excess tech debt and a platform that no one fully understands. So in many situations, accountants use what they know best – cumbersome, clunky, slow Excel spreadsheets. However, managing these spreadsheets can be a tedoious, error-prone, and time-consuming task.
 
-**What Does This App Do?**
+**What Does This App Solve?**
 
 To prevent wasted money and time, this application aims to provide a cost-effective solution to automate the revenue recognition process, simplifying the task while maintaining accuracy and efficiency. This application can create and manage customer records, contracts, and transactions. A contract can contain multiple transactions, each with varying service periods and billing cadences. These details are then used to streamline the generation of a contract's invoices automatically. Accountants can then utilize the application to pull data for a particular month, helping them obtain the appropriate revenue by product to be recognized in their monthly journal entries.
 
