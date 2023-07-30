@@ -1,5 +1,4 @@
-**Overview**
-Welcome to my Nucamp portfolio project!
+**Welcome to my Nucamp portfolio project!**
 
 This application has been developed using Flask, backed by a Postgres database and utilizes SQLAlchemy for ORM. This application is designed for accountants to automate the revenue recognition process. In the world of accounting, revenue must be recognized in compliance with the ASC 606 framework provided by GAAP. There are five steps to determine the proper treatment of revenue:
 
@@ -34,14 +33,15 @@ This application is designed to create and manage customer records, contracts, a
 Ultimately, I envision integrating the application with Quickbooks Online. This would facilitate automatic invoice creation and the booking of monthly revenue journal entries, providing a comprehensive and efficient solution for revenue management.
 
 **API Endpoints**
-Customers
-Index - GET - {{ _.base_url }}/customers
-Show - GET - {{ _.base_url }}/customers/customer_id
-Create - POST - {{base_url}}/customers (JSON body)
-Delete - DELETE - {{base_url}}/customers/customer_id
-Update - PUT - {{base_url}}/customers/customer_id (JSON body)
-Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
-Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
+
+    - Customers
+    - Index - GET - {{ _.base_url }}/customers
+    - Show - GET - {{ _.base_url }}/customers/customer_id
+    - Create - POST - {{base_url}}/customers (JSON body)
+    - Delete - DELETE - {{base_url}}/customers/customer_id
+    - Update - PUT - {{base_url}}/customers/customer_id (JSON body)
+    - Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
+    - Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
 
 Contracts
 Index - GET - {{ _.base_url }}/contracts
