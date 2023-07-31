@@ -16,6 +16,7 @@ services:
       - DB_HOST=pg
       - DB_PORT=5432
       - DATABASE=postgres
+      - DATABASE_URL=postgresql://postgres:admin123@pg:5432/revtracker_flask
     depends_on:
       - pg
   pg:
