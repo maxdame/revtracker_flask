@@ -1,1 +1,3 @@
 venv/
+app/src/__pycache__/
+app/src/migrations/
