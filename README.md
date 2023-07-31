@@ -80,7 +80,7 @@ Invoices
 
 Accountant Tools
 
-    -Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
+    Revenue by Product by Date Range- GET - {{base_url}}/accountant-tools/revenue-by-product (JSON body)
 
 **Database Structure**
 
