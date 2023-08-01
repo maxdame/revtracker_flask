@@ -31,11 +31,12 @@ def create_app(test_config=None):
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    from .api import customers, contracts, transactions, invoices, accountant_tools
+    from .api import customers, contracts, transactions, invoices, accountant_tools, home
     app.register_blueprint(customers.bp)
     app.register_blueprint(contracts.bp)
     app.register_blueprint(transactions.bp)
     app.register_blueprint(invoices.bp)
     app.register_blueprint(accountant_tools.bp)
+    app.register_blueprint(home.bp)
 
     return app

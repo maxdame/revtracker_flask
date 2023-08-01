@@ -1,0 +1,17 @@
+html {
+    font-family: "Inter";
+    color: #f6f6f6;
+    background-color: #111111;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
