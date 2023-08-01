@@ -43,40 +43,40 @@ The application currently lacks a front end but is in a working version. That be
 Customers
 
     Index - GET - {{ _.base_url }}/customers
-    Show - GET - {{ _.base_url }}/customers/customer_id
+    Show - GET - {{ _.base_url }}/customers/<customer_id>
     Create - POST - {{base_url}}/customers (JSON body)
-    Delete - DELETE - {{base_url}}/customers/customer_id
-    Update - PUT - {{base_url}}/customers/customer_id (JSON body)
-    Contracts by Customer - GET - {{base_url}}/customers/customer_id/contracts
-    Invoices by Customer - GET - {{base_url}}/customers/customer_id/invoices
+    Delete - DELETE - {{base_url}}/customers/<customer_id>
+    Update - PUT - {{base_url}}/customers/<customer_id> (JSON body)
+    Contracts by Customer - GET - {{base_url}}/customers/<customer_id>/contracts
+    Invoices by Customer - GET - {{base_url}}/customers/<customer_id>/invoices
 
 Contracts
 
     Index - GET - {{ _.base_url }}/contracts
-    Show - GET - {{ _.base_url }}/contracts/contract_id
+    Show - GET - {{ _.base_url }}/contracts/<contract_id>
     Create - POST - {{base_url}}/contracts (JSON body)
-    Delete - DELETE - {{base_url}}/contracts/contract_id
-    Update - PUT - {{base_url}}/contracts/contract_id (JSON body)
-    Transactions by Contract - GET - {{base_url}}/contracts/contract_id/transactions
-    Invoices by Contract - GET - {{base_url}}/contracts/contract_id/invoices
+    Delete - DELETE - {{base_url}}/contracts/<contract_id>
+    Update - PUT - {{base_url}}/contracts/<contract_id> (JSON body)
+    Transactions by Contract - GET - {{base_url}}/contracts/<contract_id>/transactions
+    Invoices by Contract - GET - {{base_url}}/contracts/<contract_id>/invoices
 
 Transactions
 
     Index - GET - {{base_url}}/transactions
-    Show - GET - {{ _.base_url }}/transactions/txn_id
+    Show - GET - {{ _.base_url }}/transactions/<txn_id>
     Create - POST - {{base_url}}/transactions (JSON body)
-    Delete - DELETE - {{base_url}}/transactions/txn_id
-    Update - PUT - {{base_url}}/transactions/txn_id (JSON body)
-    Invoices by Transaction- GET - {{base_url}}/transactions/txn_id/invoices
+    Delete - DELETE - {{base_url}}/transactions/<txn_id>
+    Update - PUT - {{base_url}}/transactions/<txn_id> (JSON body)
+    Invoices by Transaction- GET - {{base_url}}/transactions/<txn_id>/invoices
 
 Invoices
 
     Index - GET - {{base_url}}/invoices
-    Show - GET - {{base_url}}/invoices/invoice_id
+    Show - GET - {{base_url}}/invoices/<invoice_id>
     Create - POST - {{base_url}}/invoices (JSON body)
-    Delete - DELETE - {{base_url}}/invoices/invoice_id
+    Delete - DELETE - {{base_url}}/invoices/<invoice_id>
     Update - PUT - {{base_url}}/invoices (JSON body)
-    Transactions by Invoice - GET - {{base_url}}/invoices/invoice_id/transactions
+    Transactions by Invoice - GET - {{base_url}}/invoices/<invoice_id>/transactions
 
 Accountant Tools
 
@@ -144,3 +144,37 @@ Relationships:
     - One Invoice can have many Transactions, and one Transaction can have many Invoices (Many-to-Many relationship with invoices_transactions table)
     - One Customer can have many Invoices
     - One Contract can have many Invoices
+
+**HOW TO SETUP**
+
+1.  Open a Bash terminal and navigate any where you would like to clone the repository and enter the following git command:
+
+        git clone https://github.com/maxdame/revtracker_flask.git
+
+2.  Navigate into the repository:
+
+        cd revtracker_flask
+
+3.  Make sure Docker Desktop is running then execute the following command in the Bash terminal to create the docker containers, database tables and populate the tables with test data:
+
+        winpty docker compose up -d && winpty docker exec -it $(docker ps -qf "name=web") flask db migrate && winpty docker exec -it $(docker ps -qf "name=web") flask db upgrade && winpty docker exec -it $(docker ps -qf "name=web") python customer_seed.py && winpty docker exec -it $(docker ps -qf "name=web") python invoice_seed.py
+
+4.  In a browser, navigate to pgAdmin at the following address:
+
+        http://localhost:5433/
+
+5.  In pgAdmin, create a new server with the following credentials:
+
+        General Tab:
+            - Name: revtracker_flask
+        Connection Tab:
+            - Host: pg
+            - Port: 5432
+            - Username: postgres
+            - Password: admin123
+
+6.  In another browser tab, navigate to the default flask address:
+
+        http://localhost:5000/
+
+7.  If you wish to test the API endpoints, import the insomnia.json file into Insomnia.
