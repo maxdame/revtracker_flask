@@ -67,17 +67,17 @@ def create():
         contract_id = transaction['contract_id']
         contract_value = Contract.query.get(contract_id).value
 
-        existing_transactions = Transaction.query.filter_by(
-            contract_id=contract_id).all()
-        total_existing_value = sum(
-            transaction.value for transaction in existing_transactions)
+        # existing_transactions = Transaction.query.filter_by(
+        #     contract_id=contract_id).all()
+        # total_existing_value = sum(
+        #     transaction.value for transaction in existing_transactions)
 
-        total_new_value = sum(
-            float(transaction['value']) for transaction in transaction_details)
-        total_transaction_value = total_existing_value + total_new_value
+        # total_new_value = sum(
+        #     float(transaction['value']) for transaction in transaction_details)
+        # total_transaction_value = total_existing_value + total_new_value
 
-        if total_transaction_value != contract_value:
-            return abort(400, 'total transaction values do not equal the contract value')
+        # if total_transaction_value != contract_value:
+        #     return abort(400, f'total transaction values do not equal the contract value {total_transaction_value}')
 
         product = transaction['product']
         value = float(transaction['value'])

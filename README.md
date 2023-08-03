@@ -28,7 +28,7 @@ The deferred revenue liability has now been reduced by $10 resulting in a balanc
 
 **So What's The Problem?**
 
-On the surface, revenue recognition may appear straightforward, but the example given barely dives into its complexities. Consider scenarios where you're dealing with tens or hundreds of thousands of customers, with contracts that don't necessarily align to a neat 12 month timeframe or a clean $120 value. Or imagine contracts that with multiple products, each carrying its own performance obligations and billing cadences.
+On the surface, revenue recognition may appear straightforward, but the example given barely dives into its complexities. Consider scenarios where you're dealing with tens or hundreds of thousands of customers, with contracts that don't necessarily align to a neat 12 month timeframe or a clean $120 value. Or imagine contracts with step-up pricing, multiple products with different performance obligations and billing cadences.
 
 While there are online revenue recognition solutions available, they often come with hefty price tags. Additionally, these tools often remain underutilized due to their intricate systems, leading to excess tech debt and a platform that no one fully understands. So in many situations, accountants use what they know best – cumbersome, clunky, slow Excel spreadsheets. However, managing these spreadsheets can be a tedoious, error-prone, and time-consuming task.
 
