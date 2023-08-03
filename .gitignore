@@ -3,3 +3,4 @@ venv/
 *.pyo
 *.pyd
 app/.env
+versions/__pycache__/*
