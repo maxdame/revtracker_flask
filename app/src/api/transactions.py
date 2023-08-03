@@ -56,29 +56,26 @@ def show(id: int):
 
 @bp.route('', methods=['POST'])
 def create():
+    contract_id = request.json['contract_id']
     transaction_details = request.json['transactions']
-    required_fields = ['contract_id', 'product', 'value',
+
+    required_fields = ['product', 'value',
                        'start_date', 'end_date', 'billing_cadence']
+
     valid, error = validate_fields(transaction_details, required_fields)
     if not valid:
         return abort(400, error)
+
+    contract_value = Contract.query.get(contract_id).value
+    total_transaction_value = sum(
+        [transaction['value'] for transaction in transaction_details])
+
+    if total_transaction_value != contract_value:
+        return abort(400, f'Transaction value error.\nSubmitted transactions: {total_transaction_value}\nContract value: {contract_value}')
+
     results = []
+
     for transaction in transaction_details:
-        contract_id = transaction['contract_id']
-        contract_value = Contract.query.get(contract_id).value
-
-        # existing_transactions = Transaction.query.filter_by(
-        #     contract_id=contract_id).all()
-        # total_existing_value = sum(
-        #     transaction.value for transaction in existing_transactions)
-
-        # total_new_value = sum(
-        #     float(transaction['value']) for transaction in transaction_details)
-        # total_transaction_value = total_existing_value + total_new_value
-
-        # if total_transaction_value != contract_value:
-        #     return abort(400, f'total transaction values do not equal the contract value {total_transaction_value}')
-
         product = transaction['product']
         value = float(transaction['value'])
         start_date = transaction['start_date']
@@ -87,6 +84,7 @@ def create():
 
         valid, error = valid_product_and_cadence(product, billing_cadence)
         if not valid:
+            db.session.rollback()
             return abort(400, error)
 
         new_transaction = Transaction(
@@ -102,6 +100,7 @@ def create():
             db.session.commit()
             results.append(new_transaction.serialize())
         except Exception as e:
+            db.session.rollback()
             return jsonify({'error': str(e)}), 500
     return jsonify(results)
 
