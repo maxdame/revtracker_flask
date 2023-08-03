@@ -37,7 +37,12 @@ def revenue_by_product():
             start_date = transaction.start_date
             end_date = transaction.end_date
             num_of_months = relativedelta(end_date, start_date).months + 1
-            revenue_by_product[product] += round(
-                transaction.value / num_of_months, 2)
+            print('----------------------------')
+            print('PRODUCT:', product)
+            print('NUMBER OF MONTHS:', num_of_months)
+            print('TRANS VAL:', transaction.value)
+            print('MONTHLY AMT:', transaction.value / num_of_months)
+            print('----------------------------')
+            revenue_by_product[product] += transaction.value / num_of_months
 
     return jsonify(revenue_by_product)
