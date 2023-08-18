@@ -35,7 +35,7 @@ def index():
     invoices = Invoice.query.all()
     result = [invoice.serialize() for invoice in invoices]
     if len(result) == 0:
-        return abort(400, 'no invoices in database')
+        return jsonify('no invoices in database')
     return jsonify(result)
 
 
