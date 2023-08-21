@@ -1,7 +1,11 @@
 version: "3.8"
 services:
   web:
-    build: ./app
+    container_name: revtracker
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: revtracker:latest
     command: flask run --host=0.0.0.0 --port=5000
     volumes:
       - ./app/:/app/
@@ -20,7 +24,7 @@ services:
     depends_on:
       - pg
   pg:
-    container_name: pg_container
+    container_name: postgres
     image: postgres:13.2-alpine
     restart: always
     environment:
@@ -33,7 +37,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   pgadmin:
-    container_name: pgadmin_container
+    container_name: pgadmin
     image: dpage/pgadmin4:5.2
     restart: always
     environment:
