@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revtracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: revtracker
+  template:
+    metadata:
+      labels:
+        app: revtracker
+    spec:
+      containers:
+        - name: revtracker
+          image: revtrackerregistry.azurecr.io/revtracker:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DATABASE_HOST
+              value: "revtracker-server.postgres.database.azure.com"
+            - name: DATABASE_USER
+              value: "earthyparrot8"
+            - name: DATABASE_PASSWORD
+              value: "lhHhtdAXWMHkOA0RPzknWA"
+            - name: DATABASE_NAME
+              value: "revtracker_db"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - revtracker
+              topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: revtracker-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: revtracker

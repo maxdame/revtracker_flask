@@ -9,7 +9,8 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        SQLALCHEMY_DATABASE_URI='postgresql://postgres:admin123@pg:5432/revtracker_flask',
+        # SQLALCHEMY_DATABASE_URI='postgresql://ardentapple3:Z_F2FMUgtNd3WwFfy8boUA@revtracker-server.postgres.database.azure.com:5432/revtracker_db',
+        SQLALCHEMY_DATABASE_URI='postgresql://earthyparrot8:lhHhtdAXWMHkOA0RPzknWA@revtracker-server.postgres.database.azure.com/revtracker?sslmode=require',
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         SQLALCHEMY_ECHO=True
     )
