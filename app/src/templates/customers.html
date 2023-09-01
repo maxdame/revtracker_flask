@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invoisync | customers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/customers.css') }}" />
+  </head>
+  <body>
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="{{ url_for('home.home') }}">invoisync / customer-management</a></div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home.home') }}">Home</a></li>
+          <li>
+            <a href="{{ url_for('customers.index') }}" class="desktop-item">Get Started</a>
+            <ul class="drop-menu">
+              <li><a href="{{ url_for('customers.index') }}">Customers</a></li>
+              <li><a href="#">Contracts</a></li>
+              <li><a href="#">Invoices</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-item">Accountant Tools</a>
+            <ul class="drop-menu">
+              <li><a href="#">Rev Rec</a></li>
+              <li><a href="#">KPIs</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Form to Create or Update Customer -->
+    <form id="customerForm" action="{{ url_for('customers.create') }}" method="post">
+      <input type="hidden" id="customer_id" />
+      <input type="text" id="name" name="name" placeholder="Customer Name" />
+      <input type="text" id="address_line_1" name="address_line_1" placeholder="Address Line 1" />
+      <input type="text" id="address_line_2" name="address_line_2" placeholder="Address Line 2" />
+      <input type="text" id="city" name="city" placeholder="City" />
+      <input type="text" id="state" name="state" placeholder="State" />
+      <input type="text" id="zip_code" name="zip_code" placeholder="Zip Code" />
+      <input type="text" id="country" name="country" placeholder="Country" />
+      <button type="submit" class="create_customer">Create Customer</button>
+    </form>
+
+    <!-- Table to Display Customers -->
+    <table id="customersTable">
+      <thead>
+        <tr>
+          <th class="id">ID</th>
+          <th>Name</th>
+          <th>Address Line 1</th>
+          <th>Address Line 2</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+          <th>Country</th>
+          <th class="created_on">Created On</th>
+          <th class="is_active">Is Active</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="customersTbody">
+        {% for customer in customers %} {% if customer.customer_id == editable_id %}
+        <!-- This row will be editable -->
+        <form action="{{ url_for('customers.update', id=customer.customer_id) }}" method="post">
+          <tr>
+            <td>{{ customer.customer_id }}</td>
+            <td><input type="text" name="name" value="{{ customer.name }}" /></td>
+            <td><input type="text" name="address_line_1" value="{{ customer.address.address_line_1}}" /></td>
+            <td><input type="text" name="address_line_2" value="{{ customer.address.address_line_2 }}" /></td>
+            <td><input type="text" name="city" value="{{ customer.address.city }}" /></td>
+            <td><input type="text" name="state" value="{{ customer.address.state }}" /></td>
+            <td><input type="text" name="zip_code" value="{{ customer.address.zip_code }}" /></td>
+            <td><input type="text" name="country" value="{{ customer.address.country }}" /></td>
+            <td>{{customer.created_on}}</td>
+            <td>{{customer.is_active}}</td>
+            <td class="actions"><button type="submit" class="save_customer">Save</button></td>
+          </tr>
+        </form>
+        {% else %}
+        <tr>
+          <td>{{ customer.customer_id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.address.address_line_1 }}</td>
+          <td>{{ customer.address.address_line_2 }}</td>
+          <td>{{ customer.address.city }}</td>
+          <td>{{ customer.address.state }}</td>
+          <td>{{ customer.address.zip_code }}</td>
+          <td>{{ customer.address.country }}</td>
+          <td>{{ customer.created_on }}</td>
+          <td class="is_active">{{ customer.is_active }}</td>
+          <td class="actions">
+            <form action="{{ url_for('customers.show', id=customer.customer_id) }}" method="get">
+              <button type="submit" class="show_customer">View</button>
+            </form>
+            <form action="{{ url_for('customers.set_editable', id=customer.customer_id) }}" method="post">
+              <button type="submit" class="update_customer">Update</button>
+            </form>
+            <form action="{{ url_for('customers.delete', id=customer.customer_id) }}" method="post">
+              <button type="submit" class="delete_customer">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endif %} {% endfor %}
+      </tbody>
+    </table>
+    <script></script>
+  </body>
+</html>

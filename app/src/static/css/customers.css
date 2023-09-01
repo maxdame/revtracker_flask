@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+#customerForm {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: #111111;
+    color: #f2f2f2;
+}
+
+.create_customer {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.show_customer:hover,
+.update_customer:hover {
+    background: #1087fd;
+}
+
+.create_customer:hover,
+.save_customer:hover {
+    background: #20d80f;
+}
+
+
+.delete_customer:hover {
+    background: #fd1010;
+}
+
+.actions {
+    text-align: center;
+    height: 108px;
+    width: 108px;
+}
+
+.is_active {
+    width: 88px;
+}
+
+.id {
+    width: 45px;
+}
+
+.created_on {
+    width: 117px;
+}
+
+.actions button {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 80px;
+    margin: 2px;
+
+}
+
+input {
+    font-size: 15px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+
+table {
+    width: 2000px;
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}

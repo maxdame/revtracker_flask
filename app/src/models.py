@@ -33,7 +33,7 @@ class Customer(db.Model):
         return {
             'customer_id': self.id,
             'name': self.name,
-            'created_at': self.created_on.strftime('%Y-%m-%d'),
+            'created_on': self.created_on.strftime('%Y-%m-%d'),
             'is_active': self.is_active,
             'address': {
                 'address_line_1': self.address_line_1,
@@ -134,13 +134,15 @@ class Contract(db.Model):
         self.customer_id = customer_id
 
     def serialize(self):
+        formatted_value = "{:,.2f}".format(self.value)
         return {
             'contract_id': self.id,
+            'created_on': self.created_on,
             'customer_name': self.customer.name,
             'status': self.status.name,
             'start_date': self.start_date.strftime('%Y-%m-%d'),
             'end_date': self.end_date.strftime('%Y-%m-%d'),
-            'value': self.value
+            'value': formatted_value
         }
 
 

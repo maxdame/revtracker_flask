@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invoisync | customers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/show_customer.css') }}" />
+  </head>
+  <body>
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="{{ url_for('home.home') }}">invoisync / customer-management</a></div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home.home') }}">Home</a></li>
+          <li>
+            <a href="{{ url_for('customers.index') }}" class="desktop-item">Get Started</a>
+            <ul class="drop-menu">
+              <li><a href="{{ url_for('customers.index') }}">Customers</a></li>
+              <li><a href="#">Contracts</a></li>
+              <li><a href="#">Invoices</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-item">Accountant Tools</a>
+            <ul class="drop-menu">
+              <li><a href="#">Rev Rec</a></li>
+              <li><a href="#">KPIs</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="customer-container">
+      <div class="customer-card">
+        <div class="customer-details">
+          <h1 class="customer-header">{{ customer.name }}</h1>
+          <div class="customer">
+            <div class="customer-detail"><strong>Customer ID:</strong> {{ customer.id }}</div>
+            <div class="customer-detail"><strong>Created On:</strong> {{ customer.created_on }}</div>
+            <div class="customer-detail"><strong>Is Active:</strong> {{ customer.is_active }}</div>
+            <div class="customer-address">
+              <strong>Address:</strong>
+              <address>
+                {{ customer.address_line_1 }}<br />
+                {% if customer.address_line_2 %} {{ customer.address_line_2 }}<br />
+                {% endif %} {{ customer.city }}, {{ customer.state }} {{ customer.zip_code }}<br />
+                {{ customer.country }}
+              </address>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <form action="{{ url_for('customers.index') }}" method="get">
+            <button type="submit" class="index_customers">Return to Customers</button>
+          </form>
+          <form action="{{ url_for('customers.customer_contracts', id=customer.id) }}" method="get">
+            <button type="submit" class="customer_contracts">Create Contract</button>
+          </form>
+          <form action="{{ url_for('customers.customer_invoices', id=customer.id) }}" method="get">
+            <button type="submit" class="customer_invoices">Invoices</button>
+          </form>
+          <form action="{{ url_for('customers.set_editable', id=customer.id) }}" method="post">
+            <button type="submit" class="update_customer">Update</button>
+          </form>
+          <form action="{{ url_for('customers.delete', id=customer.id) }}" method="post">
+            <button type="submit" class="delete_customer">Delete</button>
+          </form>
+        </div>
+      </div>
+      <div class="contract-card">
+        {% if contracts %}
+        <h1 class="contracts-header">CONTRACTS</h1>
+        {% for contract in contracts %}
+        <div class="contract">
+          <div><strong>Contract #:</strong> {{ contract.id }}</div>
+          <div><strong>Status:</strong> {{ contract.status.name }}</div>
+          <div><strong>Created On:</strong> {{ contract.created_on }}</div>
+          <div><strong>Start Date:</strong> {{ contract.start_date }}</div>
+          <div><strong>End Date:</strong> {{ contract.end_date }}</div>
+          <div><strong>Amount:</strong> ${{ contract.value }}</div>
+        </div>
+        {% endfor %} {% else %}
+        <h1>NO CONTRACTS</h1>
+        {% endif %}
+      </div>
+      <div class="invoice-card">
+        {% if invoices %} {% for invoice in invoices %}
+        <h1 class="invoice-header">INVOICES</h1>
+        <div class="invoice">
+          <ul>
+            <li>Invoice #: {{ invoice.id }}</li>
+          </ul>
+        </div>
+        {% endfor %} {% else %}
+        <h1>NO INVOICES</h1>
+        {% endif %}
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>

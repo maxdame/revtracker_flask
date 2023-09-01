@@ -1,50 +1,9 @@
-html {
-    font-family: "Inter";
-    color: #f6f6f6;
-    background-color: #111111;
-}
 
-h1 {
-    font-size: 85px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-h2 {
-    margin-top: 5px;
-    margin: 5px;
-}
-
-body {
+.honestwork {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 80vh;
     margin: 0;
-}
-
-a {
-    margin: 5px;
-    background-color: #252525;
-    width: 150px
-}
-
-nav {
-    overflow: hidden;
-    ;
-}
-
-nav a {
-    float: left;
-    display: block;
-    color: #f6f6f6;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: #f6f6f6;
-    color: #111111;
 }

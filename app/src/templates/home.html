@@ -4,28 +4,81 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revenue Tracker</title>
+    <title>invoisync</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
-    </style>
   </head>
   <body>
-    <h1>Revenue Tracker</h1>
-    <h2>by Max Damewood</h2>
     <nav>
-      <a href="http://20.237.31.52/customers">Customers</a>
-      <a href="http://20.237.31.52/contracts">Contracts</a>
-      <a href="http://20.237.31.52/transactions">Transactions</a>
-      <a href="http://20.237.31.52/invoices">Invoices</a>
-      <a href="http://20.237.31.52/accountant-tools/revenue-by-product">Accountant Tools</a>
+      <div class="wrapper">
+        <div class="logo"><a href="{{ url_for('home.home') }}">invoisync / byMaxDamewood</a></div>
+        <input type="radio" name="slider" id="menu-btn" />
+        <input type="radio" name="slider" id="close-btn" />
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          <li><a href="{{ url_for('home.home') }}">Home</a></li>
+          <!-- <li>
+            <a href="#" class="desktop-item">Get Started</a>
+            <input type="checkbox" id="showMega" />
+            <label for="showMega" class="mobile-item">Get Started</label>
+            <div class="mega-box">
+              <div class="content">
+                <div class="row">
+                  <header>Customers</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Update</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Contracts</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Mobile Email</a></li>
+                    <li><a href="#">Web Marketing</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Invoices</header>
+                  <ul class="mega-links">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Privacy Seal</a></li>
+                    <li><a href="#">Website design</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li> -->
+          <li>
+            <a href="{{ url_for('customers.index') }}" class="desktop-item">Get Started</a>
+            <input type="checkbox" id="showDrop" />
+            <label for="showDrop" class="mobile-item">Get Started</label>
+            <ul class="drop-menu">
+              <li><a href="{{ url_for('customers.index') }}">Customers</a></li>
+              <li><a href="{{ url_for('contracts.index') }}">Contracts</a></li>
+              <li><a href="{{ url_for('invoices.index') }}">Invoices</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-item">Accountant Tools</a>
+            <input type="checkbox" id="showDrop" />
+            <label for="showDrop" class="mobile-item">Accountant Tools</label>
+            <ul class="drop-menu">
+              <li><a href="#">Rev Rec</a></li>
+              <li><a href="#">KPIs</a></li>
+            </ul>
+          </li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+      </div>
     </nav>
-    <div class="container">
+    <div class="honestwork">
       <img src="{{ url_for('static', filename='images/honest_work.jpg') }}" />
     </div>
+    <div class="body-text"></div>
     <script></script>
   </body>
 </html>
